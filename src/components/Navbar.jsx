@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { Poppins } from 'next/font/google';
-import Contact from './Contact'; // ✅ import Contact overlay
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import { Poppins } from "next/font/google";
+import Contact from "./Contact"; // ✅ import Contact overlay
 
 const poppins = Poppins({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
 });
 
 // ✅ Removed "Centre" link
 const navLinks = [
-  { name: 'About', href: '/#about' },
-  { name: 'What We Treat', href: '/treatment' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'Gallery', href: '/gallery' },
+  { name: "About", href: "/#about" },
+  { name: "What We Treat", href: "/treatment" },
+  { name: "Contact", href: "/contact" },
+  { name: "Gallery", href: "/gallery" },
 ];
 
 export default function Navbar() {
@@ -25,7 +25,7 @@ export default function Navbar() {
   const [showContact, setShowContact] = useState(false);
 
   const handleLinkClick = (link) => {
-    if (link.name === 'Contact') {
+    if (link.name === "Contact") {
       setShowContact(true);
     } else {
       setMenuOpen(false);
@@ -60,19 +60,21 @@ export default function Navbar() {
               className="hidden md:flex items-center space-x-8 px-6 py-2 rounded-full backdrop-blur-md relative"
               style={{
                 background:
-                  'linear-gradient(135deg, rgba(255,255,255,0.35), rgba(230,230,230,0.15))',
-                WebkitBackdropFilter: 'blur(20px)',
-                backdropFilter: 'blur(20px)',
+                  "linear-gradient(135deg, rgba(255,255,255,0.35), rgba(230,230,230,0.15))",
+                WebkitBackdropFilter: "blur(20px)",
+                backdropFilter: "blur(20px)",
               }}
             >
               {navLinks.map((link) => (
                 <div
                   key={link.name}
                   className="relative"
-                  onMouseEnter={() => link.name === 'What We Treat' && setHovered(true)}
+                  onMouseEnter={() =>
+                    link.name === "What We Treat" && setHovered(true)
+                  }
                   onMouseLeave={() => setHovered(false)}
                 >
-                  {link.name === 'Contact' ? (
+                  {link.name === "Contact" ? (
                     <button
                       onClick={() => handleLinkClick(link)}
                       className="text-base text-gray-800 font-medium px-3 py-1 rounded-full transition-all duration-300 hover:bg-pink-600 hover:text-white"
@@ -90,13 +92,25 @@ export default function Navbar() {
                   )}
 
                   {/* Dropdown on hover */}
-                  {link.name === 'What We Treat' && hovered && (
+                  {link.name === "What We Treat" && hovered && (
                     <div className="absolute left-0 mt-2 w-64 bg-white/90 backdrop-blur-md rounded-lg shadow-lg py-2">
                       {[
-                        { name: 'Orthopedic Conditions', href: '/treatment#orthopedic' },
-                        { name: 'Paediatric Conditions', href: '/treatment#paediatric' },
-                        { name: 'Neurological Conditions', href: '/treatment#neurological' },
-                        { name: 'Oncological (Cancer) Conditions', href: '/treatment#oncological' },
+                        {
+                          name: "Orthopedic Conditions",
+                          href: "/treatment#orthopedic",
+                        },
+                        {
+                          name: "Paediatric Conditions",
+                          href: "/treatment#paediatric",
+                        },
+                        {
+                          name: "Neurological Conditions",
+                          href: "/treatment#neurological",
+                        },
+                        {
+                          name: "Oncological (Cancer) Conditions",
+                          href: "/treatment#oncological",
+                        },
                       ].map((item) => (
                         <Link
                           key={item.name}
@@ -167,18 +181,41 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* Mobile Hamburger */}
+            {/* Mobile
+             Hamburger */}
             <button
               className="md:hidden pr-4 focus:outline-none"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7 text-gray-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m0 6H4" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-7 w-7 text-gray-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16m0 6H4"
+                  />
                 </svg>
               )}
             </button>
@@ -188,7 +225,7 @@ export default function Navbar() {
           {menuOpen && (
             <div className="md:hidden bg-white/80 backdrop-blur-lg rounded-lg mx-4 mt-2 p-4 space-y-3">
               {navLinks.map((link) =>
-                link.name === 'Contact' ? (
+                link.name === "Contact" ? (
                   <button
                     key={link.name}
                     onClick={() => handleLinkClick(link)}
