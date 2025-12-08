@@ -5,22 +5,22 @@ import Image from 'next/image';
 
 const galleryItems = [
   {
-    src: '/gallery/clinic1.jpg',
+    src: '/gallery/gal1.jpeg',
     caption: 'Rehabilitation in Progress',
     desc: 'Patients receiving guided physiotherapy under expert supervision for better recovery.',
   },
   {
-    src: '/gallery/clinic2.jpg',
+    src: '/gallery/gal2.jpeg',
     caption: 'Therapy Room Setup',
     desc: 'State-of-the-art equipment designed to provide the best therapeutic experience.',
   },
   {
-    src: '/gallery/clinic3.jpg',
+    src: '/gallery/gal3.jpeg',
     caption: 'Team Physiotherapy Session',
     desc: 'Our team works closely to ensure holistic recovery and consistent patient care.',
   },
   {
-    src: '/gallery/clinic4.jpg',
+    src: '/gallery/gal4.jpeg',
     caption: 'Exercise and Stretching Routine',
     desc: 'Every session is customized to help restore mobility and improve strength.',
   },

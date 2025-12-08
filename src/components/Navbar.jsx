@@ -131,7 +131,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center space-x-3 pr-4">
               {/* WhatsApp */}
               <a
-                href="https://wa.me/"
+                href="https://wa.me/9870082657"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-white/60 backdrop-blur-md flex items-center justify-center"
@@ -164,7 +164,7 @@ export default function Navbar() {
               </a>
 
               {/* Twitter */}
-              <a
+              {/* <a
                 href="#"
                 target="_blank"
                 rel="noreferrer"
@@ -178,7 +178,7 @@ export default function Navbar() {
                 >
                   <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.59 8.59 0 0 1-2.7 1.03 4.24 4.24 0 0 0-7.22 3.87A12 12 0 0 1 3.15 4.7a4.25 4.25 0 0 0 1.31 5.67 4.2 4.2 0 0 1-1.92-.53v.05a4.25 4.25 0 0 0 3.4 4.16 4.27 4.27 0 0 1-1.91.07 4.26 4.26 0 0 0 3.97 2.95A8.51 8.51 0 0 1 2 19.54a12 12 0 0 0 6.29 1.84A12 12 0 0 0 20.3 9.29a8.67 8.67 0 0 0 2.16-2.25z" />
                 </svg>
-              </a>
+              </a> */}
             </div>
 
             {/* Mobile

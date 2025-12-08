@@ -93,7 +93,7 @@ export default function About() {
 
         {/* Image Strip */}
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 w-full max-w-6xl mx-auto px-2">
-          {['/cs1.png', '/cs1.png', '/cs1.png'].map((src, index) => (
+          {['/abt1.jpeg', '/abt2.jpeg', '/gal2.jpeg'].map((src, index) => (
             <img
               key={index}
               src={src}

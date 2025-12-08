@@ -16,7 +16,7 @@ const treatments = [
     desc: `We specialize in complete rehabilitation for fractures, joint replacements, arthritis, ligament injuries, and post-surgical recovery. Our expert physiotherapists design evidence-based programs that include manual therapy, strengthening, and balance training to restore your mobility and reduce chronic pain.
     
 We also offer postural correction and preventive care for people with back or neck pain caused by sedentary lifestyles. Whether you’re an athlete or recovering from surgery, we help you regain strength, confidence, and pain-free movement for daily life.`,
-    img: '/oc1.jpg',
+    img: '/ortho.jpeg',
   },
   {
     id: 'paediatric',
@@ -32,7 +32,7 @@ Early intervention helps your child build essential motor skills, improve postur
     desc: `We provide comprehensive neuro-rehabilitation for stroke, spinal cord injuries, multiple sclerosis, Parkinson’s disease, and peripheral nerve disorders. Our advanced therapy focuses on retraining the brain and body through repetitive, goal-driven exercises that improve balance, coordination, and functional independence.
     
 Using evidence-based neuroplasticity techniques, we aim to restore lost functions and improve overall quality of life. Our sessions emphasize gradual progress, motivation, and confidence in everyday activities.`,
-    img: '/neuro.jpg',
+    img: '/neuro.jpeg',
   },
   {
     id: 'oncological',
@@ -40,7 +40,7 @@ Using evidence-based neuroplasticity techniques, we aim to restore lost function
     desc: `Cancer and its treatments can lead to fatigue, pain, muscle weakness, and limited mobility. Our oncological physiotherapy focuses on improving strength, endurance, and quality of life during and after cancer treatment.
     
 We help patients manage lymphedema, regain energy, and reduce treatment side effects with gentle, progressive exercises and relaxation therapies. Our approach ensures every session is safe, empowering, and customized to each patient’s unique recovery journey.`,
-    img: '/cancer.jpg',
+    img: '/onco.jpg',
   },
 ];
 

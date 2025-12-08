@@ -58,7 +58,7 @@ export default function Meet() {
           animate={section1InView ? 'visible' : 'hidden'}
         >
           <Image
-            src="/msp1.png"
+            src="/ms1.jpeg"
             alt="Meet our expert"
             fill
             className="object-cover rounded-2xl transform transition-transform duration-500 ease-in-out group-hover:scale-108"
@@ -77,10 +77,7 @@ export default function Meet() {
             Meet Our Specialists
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.
+           Dr. Pooja Gaikwad is an Occupational Therapist with over nine years of experience, holding BOT (Hons) and MOTH (Neuro) degrees from Sion Hospital. She is Sion Hospital Certified, part of the Tata Memorial Hospital Panel
           </p>
           <button className="px-6 py-3 rounded-full bg-[#f2d89c] text-[#1e2b27] font-serif font-medium hover:bg-[#eacb83] transition-colors duration-300">
             Let’s Talk
@@ -99,16 +96,14 @@ export default function Meet() {
           initial="hidden"
           animate={section2InView ? 'visible' : 'hidden'}
         >
-          <p className="text-sm uppercase tracking-wider text-gray-500 mb-3">
+          {/* <p className="text-sm uppercase tracking-wider text-gray-500 mb-3">
             Our Mission
-          </p>
+          </p> */}
           <h2 className="text-4xl md:text-5xl font-serif text-[#1e2b27] mb-5">
-            Building wellness for everyone
+            Certifications
           </h2>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-            Join us in creating a healthier, happier world.
+           She is a certified Manual Osteopath and Chiropractic Therapist with multiple advanced certifications and has treated international patients from Africa, Bangladesh, Russia, and Boston. She has presented case studies at national and international conferences and was invited as Guest Faculty at Tata Memorial Hospital for a session on “The Role of Occupational Therapy in Neurological Conditions.” 
           </p>
           <button className="px-6 py-3 rounded-full bg-[#f2d89c] text-[#1e2b27] font-serif font-medium hover:bg-[#eacb83] transition-colors duration-300">
             More About Us
@@ -124,7 +119,7 @@ export default function Meet() {
           transition={{ delay: 0.3 }}
         >
           <Image
-            src="/msp2.png"
+            src="/ms2.jpeg"
             alt="Mental wellness session"
             fill
             className="object-cover rounded-2xl transform transition-transform duration-500 ease-in-out group-hover:scale-108"

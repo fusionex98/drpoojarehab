@@ -8,19 +8,22 @@ export default function FAQBot() {
   const [input, setInput] = useState("");
   const messagesEndRef = useRef(null);
 
+  const API_URL = "https://carebot-kdyr.onrender.com/ask";
+
   // Wake up Render backend
   useEffect(() => {
     const wakeUpServer = () => {
-      fetch("https://webchatbot-i0px.onrender.com/")
+      fetch("https://carebot-kdyr.onrender.com")
         .then(() => console.log("✅ Render backend wake-up triggered"))
         .catch(() => console.log("⚠️ Failed to wake Render server"));
     };
+
     wakeUpServer();
     const interval = setInterval(wakeUpServer, 12 * 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
-  // Scroll to bottom when messages change
+  // Auto-scroll to bottom
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -31,16 +34,21 @@ export default function FAQBot() {
 
   const sendMessage = async () => {
     if (!input.trim()) return;
+
     const userText = input.trim();
-    addMessage("user", userText); // show user's message
-    setInput(""); // clear input
-    addMessage("bot", "Typing..."); // show temporary bot message
+    setInput("");
+
+    // Show user message
+    addMessage("user", userText);
+
+    // Temporary "typing..." bubble
+    addMessage("bot", "Typing...");
 
     try {
-      const res = await fetch("https://webchatbot-i0px.onrender.com/chat", {
+      const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userText }),
+        body: JSON.stringify({ query: userText }), // FIXED
       });
 
       const data = await res.json();
@@ -48,10 +56,12 @@ export default function FAQBot() {
       // Replace "Typing..." with actual reply
       setMessages((prev) => [
         ...prev.slice(0, -1),
-        { sender: "bot", text: data.reply || "No response" },
+        { sender: "bot", text: data.response || "No response" }, // FIXED
       ]);
     } catch (error) {
       console.error("Chat error:", error);
+
+      // Replace typing with error message
       setMessages((prev) => [
         ...prev.slice(0, -1),
         { sender: "bot", text: "⚠️ Server not responding." },

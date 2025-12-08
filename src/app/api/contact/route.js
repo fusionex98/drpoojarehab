@@ -27,8 +27,10 @@ export async function POST(request) {
     }
 
     const { data, error } = await supabase
-      .from("contacts")
-      .insert([{ name, phone, message, created_at: new Date().toISOString() }]);
+      .from("contact_messages")
+      .insert([
+        { name, phone, body: message, created_at: new Date().toISOString() },
+      ]);
 
     if (error) {
       console.error("Supabase insert error:", error);
