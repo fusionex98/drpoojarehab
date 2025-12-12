@@ -1,9 +1,13 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function Contact({ isOpen, onClose }) {
-  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
@@ -17,15 +21,19 @@ export default function Contact({ isOpen, onClose }) {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: formData.name, phone: formData.phone, message: formData.message }),
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          message: formData.message,
+        }),
       });
 
       if (res.ok) {
         setShowToast(true);
-        setFormData({ name: '', phone: '', message: '' });
+        setFormData({ name: "", phone: "", message: "" });
         setTimeout(() => setShowToast(false), 3000);
       }
     } catch (err) {
@@ -38,7 +46,9 @@ export default function Contact({ isOpen, onClose }) {
   return (
     <div
       className={`fixed inset-0 z-50 flex bg-black/40 backdrop-blur-sm transition-opacity duration-700 ${
-        isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        isOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
       }`}
       onClick={onClose}
     >
@@ -46,7 +56,7 @@ export default function Contact({ isOpen, onClose }) {
       <div
         onClick={(e) => e.stopPropagation()}
         className={`w-full h-full bg-[#d8ece7] shadow-2xl overflow-y-auto transform transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)] flex flex-col md:flex-row ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Contact Form Section */}
@@ -60,15 +70,21 @@ export default function Contact({ isOpen, onClose }) {
           </button>
 
           {/* Form */}
-          <h2 className="text-3xl font-bold text-[#115e59] mb-6 mt-10 md:mt-4">Contact Us</h2>
+          <h2 className="text-3xl font-bold text-[#115e59] mb-6 mt-10 md:mt-4">
+            Contact Us
+          </h2>
           <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-            We're here to help! Please reach out with any questions, feedback, or inquiries. Fill out the form below and our team will get back to you soon.
+            We're here to help! Please reach out with any questions, feedback,
+            or inquiries. Fill out the form below and our team will get back to
+            you soon.
           </p>
 
           <form className="space-y-5" onSubmit={handleSubmit}>
             {/* Full Name */}
             <div>
-              <label className="block text-gray-800 font-medium mb-2">Full Name</label>
+              <label className="block text-gray-800 font-medium mb-2">
+                Full Name
+              </label>
               <input
                 type="text"
                 name="name"
@@ -82,7 +98,9 @@ export default function Contact({ isOpen, onClose }) {
 
             {/* Phone Number */}
             <div>
-              <label className="block text-gray-800 font-medium mb-2">Phone Number</label>
+              <label className="block text-gray-800 font-medium mb-2">
+                Phone Number
+              </label>
               <input
                 type="tel"
                 name="phone"
@@ -95,7 +113,9 @@ export default function Contact({ isOpen, onClose }) {
 
             {/* Enquiry */}
             <div>
-              <label className="block text-gray-800 font-medium mb-2">Enquiry</label>
+              <label className="block text-gray-800 font-medium mb-2">
+                Enquiry
+              </label>
               <textarea
                 name="message"
                 placeholder="Write your enquiry here..."
@@ -113,7 +133,7 @@ export default function Contact({ isOpen, onClose }) {
               disabled={isSubmitting}
               className="bg-[#115e59] text-white px-6 py-3 rounded-lg hover:bg-[#0d4c47] transition w-full disabled:opacity-50"
             >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
 
@@ -145,6 +165,14 @@ export default function Contact({ isOpen, onClose }) {
             </p>
             <p className="mt-2 font-semibold">Phone:</p>
             <p>+91 98700 82657</p>
+            <a
+              href="https://maps.app.goo.gl/SdTYxSZ6yWs3Cwtp6"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-block bg-white text-[#115e59] px-4 py-2 rounded-lg font-semibold hover:bg-gray-200 transition"
+            >
+              📍 Get Directions
+            </a>
           </div>
         </div>
       </div>

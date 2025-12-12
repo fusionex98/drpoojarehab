@@ -4,33 +4,45 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 export default function Ad({ autoplay = true, autoplayInterval = 5000 }) {
-  const slides = ['/slid1.png', '/slid1.png', '/slid1.png', '/slid1.png'];
+  const slides = ['/slid1.png', '/slider2.jpg','/slider4.jpg' ];
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
+  // --- Autoplay Effect ---
   useEffect(() => {
     if (!autoplay) return;
-    timeoutRef.current = setInterval(() => {
+    const intervalId = setInterval(() => {
       setIndex((i) => (i + 1) % slides.length);
     }, autoplayInterval);
-    return () => clearInterval(timeoutRef.current);
-  }, [autoplay, autoplayInterval, slides.length]);
+    
+    timeoutRef.current = intervalId; // Store the ID for clearing
+
+    // Clear interval when component unmounts or dependencies change
+    return () => clearInterval(intervalId);
+  }, [autoplay, autoplayInterval, slides.length]); // Dependencies must be correct
+
+  // --- Navigation Functions ---
+  const handleNavClick = (newIndex) => {
+    // Stop autoplay when a user manually navigates
+    if (timeoutRef.current) {
+        clearInterval(timeoutRef.current);
+    }
+    setIndex(newIndex);
+  };
 
   const prev = () => {
-    clearInterval(timeoutRef.current);
-    setIndex((i) => (i - 1 + slides.length) % slides.length);
+    handleNavClick((index - 1 + slides.length) % slides.length);
   };
 
   const next = () => {
-    clearInterval(timeoutRef.current);
-    setIndex((i) => (i + 1) % slides.length);
+    handleNavClick((index + 1) % slides.length);
   };
 
   const goTo = (i) => {
-    clearInterval(timeoutRef.current);
-    setIndex(i);
+    handleNavClick(i);
   };
-
+  
+  // --- Full Bleed Style (Stretches across viewport) ---
   const fullBleedStyle = {
     position: 'relative',
     left: '50%',
@@ -47,20 +59,11 @@ export default function Ad({ autoplay = true, autoplayInterval = 5000 }) {
     <section aria-label="Promotional carousel" className="relative bg-white">
       <div style={fullBleedStyle} className="bg-transparent">
         <div
-          className="relative overflow-hidden"
-          style={{
-            height: '85vh',
-          }}
+          className="relative overflow-hidden h-64 sm:h-96 lg:h-[85vh]"
+          // h-64 (256px) for small mobile screens
+          // sm:h-96 (384px) for medium mobile/tablet screens
+          // lg:h-[85vh] (85% of viewport height) for large desktop screens
         >
-          {/* Responsive height for small screens */}
-          <style jsx>{`
-            @media (max-width: 768px) {
-              div[style*='85vh'] {
-                height: 45vh !important;
-              }
-            }
-          `}</style>
-
           {/* Slide Track */}
           <div
             className="flex transition-transform duration-700 ease-in-out h-full"
@@ -75,7 +78,14 @@ export default function Ad({ autoplay = true, autoplayInterval = 5000 }) {
                 className="relative flex-shrink-0"
                 style={{ width: `${100 / slides.length}%`, height: '100%' }}
               >
-                <Image src={src} alt={`Slide ${i + 1}`} fill className="object-cover" priority={i === 0} />
+                {/* Image component with fill property ensures image covers its container */}
+                <Image 
+                    src={src} 
+                    alt={`Slide ${i + 1}`} 
+                    fill 
+                    className="object-cover" 
+                    priority={i === 0} 
+                />
               </div>
             ))}
           </div>
