@@ -84,7 +84,7 @@ export default function Ad({ autoplay = true, autoplayInterval = 5000 }) {
                   src={src}
                   alt={`Slide ${i + 1}`}
                   fill
-                  className="object-contain sm:object-cover"
+                  className="object-contain sm:object-contain lg:object-contain"
                   priority={i === 0}
                 />
               </div>

@@ -76,6 +76,7 @@ export default function Navbar() {
                 >
                   {link.name === "Contact" ? (
                     <button
+                      suppressHydrationWarning={true}
                       onClick={() => handleLinkClick(link)}
                       className="text-base text-gray-800 font-medium px-3 py-1 rounded-full transition-all duration-300 hover:bg-pink-600 hover:text-white"
                     >
