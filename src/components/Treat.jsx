@@ -31,7 +31,7 @@ Early intervention helps your child build essential motor skills, improve postur
     title: 'Neurological Conditions',
     desc: `We provide comprehensive neuro-rehabilitation for stroke, spinal cord injuries, multiple sclerosis, Parkinson’s disease, and peripheral nerve disorders. Our advanced therapy focuses on retraining the brain and body through repetitive, goal-driven exercises that improve balance, coordination, and functional independence.
     
-Using evidence-based neuroplasticity techniques, we aim to restore lost functions and improve overall quality of life. Our sessions emphasize gradual progress, motivation, and confidence in everyday activities.`,
+Using evidence-based occupational therapy, we aim to restore lost functions and improve overall quality of life. Our sessions emphasize gradual progress, motivation, and confidence in everyday activities.`,
     img: '/neuro.jpeg',
   },
   {

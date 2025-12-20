@@ -74,20 +74,16 @@ export default function About() {
         {/* Text */}
         <div className="max-w-4xl mx-auto text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed space-y-6 font-light">
           <p>
-            Our <span className="font-semibold text-[#115e59]">vision</span> is to
-            break down the barriers to psychiatric care, making it available to
-            anyone, anywhere, without the limitations imposed by physical distance
-            or traditional care models.
+            We believe therapy should never feel intimidating or out of reach.
+            Our <span className="font-semibold text-[#115e59]">vision</span> is to empower individuals to live an independent, pain-free, and fulfilling life by providing compassionate and personalized techniques that restore function, enhances quality of life, and supports long-term neurological and physical well-being. 
+            
           </p>
 
           <p>
             Driven by a{' '}
             <span className="font-semibold text-[#115e59]">mission</span> to
             deliver high-quality, evidence-based mental health services, we aim to
-            empower individuals to lead more balanced, fulfilling lives. Through
-            our innovative telepsychiatry platform, holistic approach, and
-            commitment to personalized care, we strive to be your trusted partner
-            in mental wellness.
+            empower individuals to lead more balanced, fulfilling lives. By providing affordable healthcare, we are here to create a safe and inclusive space for you. Trust us to keep your journey towards independence an empathetic one.
           </p>
         </div>
 
